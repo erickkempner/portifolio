@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- Cores Sólidas --- */
+  /* O verde neon principal */
+  --color-neon-lime: #39FF14;
+  
+  /* O fundo base escuro */
+  --color-deep-black: #0a0a0a;
+  
+  /* Cor específica para o fundo do vidro (com opacidade já embutida) */
+  --color-glass-black: rgba(15, 25, 15, 0.65);
+
+  /* --- Gradientes --- */
+  /* Aqui definimos aquele gradiente radial complexo como uma classe de bg */
+  --background-image-cyber: radial-gradient(
+      at 20% 20%, 
+      hsla(111, 100%, 54%, 0.15), 
+      transparent 50%
+    ),
+    radial-gradient(
+      at 80% 30%, 
+      hsla(115, 100%, 45%, 0.15), 
+      transparent 50%
+    ),
+    radial-gradient(
+      at 50% 80%, 
+      hsla(111, 100%, 35%, 0.15), 
+      transparent 50%
+    );
+
+  /* --- Sombras (Glow) --- */
+  --shadow-neon: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.3);
+
+  /* --- Fontes (Opcional) --- */
+  --font-family-sans: "Poppins", sans-serif;
+}
+
+/* 
+  Camada base para aplicar o fundo no corpo do site automaticamente 
+  sem precisar encher o HTML de classes na tag <body>
+*/
+@layer base {
+  body {
+    background-color: var(--color-deep-black);
+    background-image: var(--background-image-cyber);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #e0e0e0;
+    font-family: var(--font-family-sans); /* Padrão do Tailwind */
+  }
+
+  /* largura */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* fundo */
+::-webkit-scrollbar-track {
+  background: #0a0a0a; /* green-50 */
+}
+
+/* barra */
+::-webkit-scrollbar-thumb {
+  background-color: #22c55e; /* green-500 */
+  border-radius: 9999px;
+}
+
+/* hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #16a34a; /* green-600 */
+}
+
+}
