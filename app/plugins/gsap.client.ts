@@ -1,7 +1,7 @@
-// plugins/gsap.client.js
+
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { TextPlugin } from 'gsap/TextPlugin' // Exemplo de um plugin adicional
+import { TextPlugin } from 'gsap/TextPlugin' 
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin)
 

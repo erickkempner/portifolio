@@ -1,6 +1,6 @@
 <template>
 
-  <div class="container mx-auto overflow-hidden selection:bg-neon-lime/20">
+  <div class="overflow-hidden selection:bg-neon-lime/20">
     <slot />
   </div>
 </template>

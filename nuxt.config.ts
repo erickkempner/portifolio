@@ -1,4 +1,4 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
@@ -17,9 +17,9 @@ export default defineNuxtConfig({
     bundledThemes: ['github-dark']
   },
   lottie: {
-    componentName: 'Lottie', // Optional: Customize the component name
-    lottieFolder: '/assets/lottie', // Optional: Customize the Lottie folder path
-    autoFolderCreation: false, // Optional: Auto create lottie folder (default: true)
-    enableLogs: true // Optional: Enable console logs from module (default: true)
+    componentName: 'Lottie', 
+    lottieFolder: '/assets/lottie', 
+    autoFolderCreation: false, 
+    enableLogs: true 
   }
 })

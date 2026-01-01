@@ -1,15 +1,17 @@
 <template>
-  <section class="flex pb-10 flex-row justify-between gap-x-4 h-[calc(100vh-100px)] relative">
+  <section id="home"
+    class="flex pb-10 flex-row justify-between gap-x-4 h-[calc(100vh-100px)] relative container mx-auto">
     <div class="flex flex-col mb-20 w-1/2 justify-center ">
       <p class="text-6xl font-bold text-wrap ">Olá eu sou o erick. Um
         desenvolvedor
         <span class="text-neon-lime">Fullstack</span>
       </p>
     </div>
-    <div class="flex flex-col w-1/2 justify-center">
+    <div class="flex flex-col w-1/2 justify-center ">
+      
       <div ref="quadrado" class="flex border border-white/10
-         shadow-2xl flex-col w-max-180 h-120 bg-glass-black/60 rounded-md relative overflow-hidden">
-        <!-- botoes -->
+         shadow-2xl flex-col max-w-[720px] h-[480px] bg-glass-black/60 rounded-md relative overflow-hidden">
+        
         <div class="flex flex-row gap-x-2 justify-end my-4 mx-6 shrink-0">
           <div class="w-4 h-4 bg-red-500/60 rounded-full"></div>
           <div class="w-4 h-4 bg-yellow-500/60 rounded-full"></div>
@@ -23,16 +25,16 @@
               class="w-full h-full" />
           </div>
         </div>
-
+        
         <div ref="quadrado2" class="flex flex-col
-         w-140 h-80
+         w-[560px] h-[320px]
          bg-glass-black/95 rounded-md
          absolute bottom-20 right-70
          translate-x-1/2 translate-y-1/2
          overflow-hidden
          border border-white/10
          shadow-2xl">
-          <!-- botoes -->
+          
           <div class="flex flex-row gap-x-2 justify-end my-4 mx-6 shrink-0">
             <div class="w-3 h-3 bg-red-500/60 rounded-full"></div>
             <div class="w-3 h-3 bg-yellow-500/60 rounded-full"></div>
@@ -51,8 +53,7 @@
       </div>
     </div>
 
-    <!-- Scroll Icon Centered at Bottom -->
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12 scroll-icon-white">
+    <div ref="scrollIcon" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12 scroll-icon-white">
       <Lottie name="ScrollIcon" />
     </div>
   </section>
@@ -63,8 +64,8 @@ import type { Ref } from 'vue'
 
 const { $gsap, $ScrollTrigger } = useNuxtApp()
 
-const quadrado = ref(null)
-const quadrado2 = ref(null)
+
+const scrollIcon = ref<HTMLElement | null>(null)
 
 const snippets1: { lang: any; code: string }[] = [
   {
@@ -105,7 +106,7 @@ if (dev.isGoodDeveloper) {
 const snippets2: { lang: any; code: string }[] = [
   {
     lang: 'js',
-    code: `// Professional commitment to quality
+    code: `
 async function buildFuture() {
   const result = await deliverValue('Erick');
   console.log("Success:", result);
@@ -118,7 +119,7 @@ buildFuture();`
     code: `.dev-spirit {
   display: flex;
   font-weight: 800;
-  color: #f8fafc; /* Very light color */
+  color: #f8fafc; 
   animation: pulse 2s ease-in-out infinite;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }`
@@ -168,7 +169,7 @@ const typeCode = (fullCode: string, displayedCodeRef: Ref<string>, intervalRef: 
         intervalRef.value = null
       }
     }
-  }, 10) // Faster typing
+  }, 10) 
 
   intervalRef.value = timer as any
 }
@@ -190,15 +191,26 @@ const changeCode2 = () => {
 }
 
 onMounted(() => {
-  // Start immediately
+  
   typeCode(snippets1[0].code, displayedCode1, typingInterval1)
   timeoutId1 = setTimeout(changeCode1, 10000)
 
-  // Delay second one
+  
   setTimeout(() => {
     typeCode(snippets2[0].code, displayedCode2, typingInterval2)
     timeoutId2 = setTimeout(changeCode2, 10000)
   }, 3000)
+
+  
+  if (scrollIcon.value) {
+    const scroller = (scrollIcon.value as HTMLElement).closest('.overflow-y-scroll')
+    if (scroller) {
+      scroller.addEventListener('scroll', () => {
+        const opacity = Math.max(0, 1 - scroller.scrollTop / 50)
+        $gsap.to(scrollIcon.value, { opacity, duration: 0.2, overwrite: 'auto' })
+      })
+    }
+  }
 })
 
 onUnmounted(() => {
@@ -229,11 +241,11 @@ onUnmounted(() => {
 
 :deep(code) {
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  /* Lighter color for better readability */
+  
   color: #e2e8f0 !important;
 }
 
-/* Override Shiki token colors for better visibility on dark glass */
+
 :deep(.shiki span) {
   filter: brightness(1.5);
 }
