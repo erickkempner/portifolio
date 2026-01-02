@@ -11,7 +11,7 @@ useSeoMeta({
   description: 'Portifolio Desenvolvedor Web',
   ogTitle: 'Erick Kempner - Portifolio',
   ogDescription: 'Portifolio Desenvolvedor Web',
-  ogImage: '/portifolio/portifolio.png',
+  ogImage: 'https://i.ibb.co/5hz3JfzN/portifolio.png',
 })
 </script>
 
