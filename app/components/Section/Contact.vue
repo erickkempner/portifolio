@@ -120,7 +120,7 @@ const sendMessage = async () => {
           </p>
 
           <button type="submit" :disabled="loading"
-            class="w-full p-4 cursor-pointer rounded-xl bg-white text-black font-bold hover:bg-gray-200 transition-colors mt-2 disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center">
+            class="w-full p-4 cursor-pointer rounded-xl bg-green-700 text-white font-bold hover:bg-green-600 transition-colors mt-2 disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center">
             <span v-if="loading">Enviando...</span>
             <span v-else>Enviar Mensagem</span>
           </button>

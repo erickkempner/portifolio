@@ -181,7 +181,7 @@ const changeCode1 = () => {
   currentIndex1.value = (currentIndex1.value + 1) % snippets1.length
   typeCode(snippets1[currentIndex1.value].code, displayedCode1, typingInterval1)
 
-  const nextInterval = Math.floor(Math.random() * (32000 - 8000 + 1)) + 8000;
+  const nextInterval = Math.floor(Math.random() * (16000 - 8000 + 1)) + 8000;
   timeoutId1 = setTimeout(changeCode1, nextInterval);
 }
 

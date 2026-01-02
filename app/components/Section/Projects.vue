@@ -68,14 +68,14 @@
 
                 <div class="mt-auto flex flex-col sm:flex-row gap-3 md:gap-2">
                   <NuxtLink :to="`${project.links.demo}`" target="_blank"
-                    class="group cursor-pointer flex items-center bg-green-700 py-3 md:py-4 rounded-xl md:rounded-2xl justify-center gap-3 text-white font-medium w-full md:w-2/3 transition-colors">
+                    class="group cursor-pointer flex items-center bg-green-700 hover:bg-green-600 py-3 md:py-4 rounded-xl md:rounded-2xl justify-center gap-3 text-white font-medium w-full md:w-2/3 transition-colors">
 
                     <Icon class="text-xl md:text-2xl" name="material-symbols:page-footer-outline-rounded" />
 
                     <span class="text-sm md:text-md">Ver Demonstração</span>
                   </NuxtLink>
                   <NuxtLink :to="`${project.links.code}`" target="_blank"
-                    class="group cursor-pointer flex  items-center  bg-black py-3 md:py-4 rounded-xl md:rounded-2xl justify-center gap-3 text-white font-medium w-full md:w-1/3 transition-colors">
+                    class="group cursor-pointer flex  items-center  bg-black hover:bg-black/80 py-3 md:py-4 rounded-xl md:rounded-2xl justify-center gap-3 text-white font-medium w-full md:w-1/3 transition-colors">
                     <Icon class="text-xl md:text-2xl" name="mdi:github" />
                     <span class="text-sm md:text-md">Ver Código</span>
                   </NuxtLink>
