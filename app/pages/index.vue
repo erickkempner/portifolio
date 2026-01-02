@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
 
 const { $gsap, $ScrollTrigger } = useNuxtApp()
 
