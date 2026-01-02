@@ -24,6 +24,9 @@
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
+    "@iconify-json/logos": "^1.2.10",
+    "@iconify-json/simple-icons": "^1.2.64",
+    "@types/node": "^25.0.3",
     "@types/three": "^0.182.0"
   }
 }

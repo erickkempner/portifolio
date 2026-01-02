@@ -1,17 +1,19 @@
 <template>
-  <section id="home"
-    class="flex pb-10 flex-row justify-between gap-x-4 h-[calc(100vh-100px)] relative container mx-auto">
-    <div class="flex flex-col mb-20 w-1/2 justify-center ">
-      <p class="text-6xl font-bold text-wrap ">Olá eu sou o erick. Um
+  <section
+    class="flex py-10 pb-40 md:pb-10 flex-col md:flex-row justify-between gap-y-10 md:gap-x-4 min-h-[calc(100vh-100px)] md:h-[calc(100vh-100px)] relative container mx-auto px-6 md:px-0">
+    <div class="flex flex-col md:mb-20 w-full md:w-1/2 justify-center text-center md:text-left">
+      <p class="text-4xl md:text-6xl font-bold text-wrap ">
+        Olá, eu sou o Erick. Um
         desenvolvedor
         <span class="text-neon-lime">Fullstack</span>
       </p>
     </div>
-    <div class="flex flex-col w-1/2 justify-center ">
-      
-      <div ref="quadrado" class="flex border border-white/10
-         shadow-2xl flex-col max-w-[720px] h-[480px] bg-glass-black/60 rounded-md relative overflow-hidden">
-        
+    <div class="flex flex-col w-full md:w-1/2 justify-center">
+
+      <div ref="quadrado"
+        class="flex border border-white/10
+         shadow-2xl flex-col w-full md:max-w-[720px] h-[300px] md:h-[480px] bg-glass-black/60 rounded-md relative overflow-hidden">
+
         <div class="flex flex-row gap-x-2 justify-end my-4 mx-6 shrink-0">
           <div class="w-4 h-4 bg-red-500/60 rounded-full"></div>
           <div class="w-4 h-4 bg-yellow-500/60 rounded-full"></div>
@@ -20,13 +22,14 @@
 
         <div class="px-6 w-full h-full pb-5 flex flex-row gap-x-4 overflow-hidden">
           <div class="border-l-2 border-white/20 h-full shrink-0"></div>
-          <div class="flex-1 overflow-hidden font-mono text-sm shiki-container">
+          <div class="flex-1 overflow-hidden font-mono text-xs md:text-sm shiki-container">
             <Shiki v-if="currentSnippet1 && displayedCode1" :lang="currentSnippet1.lang" :code="displayedCode1"
               class="w-full h-full" />
           </div>
         </div>
-        
-        <div ref="quadrado2" class="flex flex-col
+
+        <!-- Hidden on mobile -->
+        <div ref="quadrado2" class="hidden md:flex flex-col
          w-[560px] h-[320px]
          bg-glass-black/95 rounded-md
          absolute bottom-20 right-70
@@ -34,7 +37,7 @@
          overflow-hidden
          border border-white/10
          shadow-2xl">
-          
+
           <div class="flex flex-row gap-x-2 justify-end my-4 mx-6 shrink-0">
             <div class="w-3 h-3 bg-red-500/60 rounded-full"></div>
             <div class="w-3 h-3 bg-yellow-500/60 rounded-full"></div>
@@ -53,7 +56,7 @@
       </div>
     </div>
 
-    <div ref="scrollIcon" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12 scroll-icon-white">
+    <div ref="scrollIcon" class="absolute bottom-4 md:bottom-0 left-1/2 -translate-x-1/2 w-12 h-12 scroll-icon-white">
       <Lottie name="ScrollIcon" />
     </div>
   </section>
@@ -71,34 +74,34 @@ const snippets1: { lang: any; code: string }[] = [
   {
     lang: 'html',
     code: `<div class="developer-card">
-  <h1>Erick: Specialist Developer</h1>
-  <p>Building high-performance web applications.</p>
-  <div class="tech-stack">Vue, Nuxt, Node.js</div>
+  <h1>Erick: Desenvolvedor Fullstack</h1>
+  <p>Desenvolvimento de aplicações web escalaveis e com performance.</p>
+  <div class="tech-stack">Vue, Nuxt, Nest.js, TypeScript</div>
 </div>`
   },
   {
     lang: 'html',
     code: `<template>
   <section class="premium-design">
-    <h2 @click="celebrate">Erick - Expert dev</h2>
+    <h1>Escolha o melhor dev do digital?</h1>
+    <button @click="celebrate">Erick</button>
+    <button @click="celebrate">Com certeza é o Erick</button>
   </section>
 </template>
-
 <script setup>
-const celebrate = () => console.log('Excellence delivered!');
+const celebrate = () => console.log('Excelente escolha!');
 <\/script>`
   },
   {
     lang: 'js',
     code: `const dev = {
   name: 'Erick',
-  skills: ['Vue', 'Nuxt', 'TypeScript'],
+  skills: ['Vue', 'Nuxt', 'Nest', 'TypeScript'],
   isGoodDeveloper: true,
-  motto: "Code is poetry in motion."
 };
 
 if (dev.isGoodDeveloper) {
-  console.log("Delivering top-tier results.");
+  console.log("Top");
 }`
   }
 ]
@@ -108,7 +111,7 @@ const snippets2: { lang: any; code: string }[] = [
     lang: 'js',
     code: `
 async function buildFuture() {
-  const result = await deliverValue('Erick');
+  const result = await bestDev('Erick');
   console.log("Success:", result);
 }
 
@@ -169,7 +172,7 @@ const typeCode = (fullCode: string, displayedCodeRef: Ref<string>, intervalRef: 
         intervalRef.value = null
       }
     }
-  }, 10) 
+  }, 10)
 
   intervalRef.value = timer as any
 }
@@ -191,17 +194,17 @@ const changeCode2 = () => {
 }
 
 onMounted(() => {
-  
+
   typeCode(snippets1[0].code, displayedCode1, typingInterval1)
   timeoutId1 = setTimeout(changeCode1, 10000)
 
-  
+
   setTimeout(() => {
     typeCode(snippets2[0].code, displayedCode2, typingInterval2)
     timeoutId2 = setTimeout(changeCode2, 10000)
   }, 3000)
 
-  
+
   if (scrollIcon.value) {
     const scroller = (scrollIcon.value as HTMLElement).closest('.overflow-y-scroll')
     if (scroller) {
@@ -241,7 +244,7 @@ onUnmounted(() => {
 
 :deep(code) {
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
-  
+
   color: #e2e8f0 !important;
 }
 
