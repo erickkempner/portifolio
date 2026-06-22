@@ -108,6 +108,17 @@
 const projects = [
   {
     id: 1,
+    title: 'Gerador de Currículos',
+    desc: 'Aplicação para criar currículos profissionais com vários modelos pré-prontos. Permite compartilhar por link e exportar para PDF.',
+    tags: ['Go', 'HTMX', 'Templ', 'Tailwind'],
+    image: '/projects/curriculo/imagem3.png',
+    links: {
+      demo: 'https://meu-curriculo-xmb7.onrender.com/',
+      code: 'https://github.com/erickkempner/meu-curriculo'
+    }
+  },
+  {
+    id: 2,
     title: 'Encurtador de Url - Shrtly',
     desc: 'Encurtador de URL com sistema de autenticação, gestão de links, estatísticas e localização de acesso ao link.',
     tags: ['Vue', 'Nuxt', 'Tailwind', 'Supabase'],
@@ -118,7 +129,7 @@ const projects = [
     }
   },
   {
-    id: 2,
+    id: 3,
     title: 'Portifolio',
     desc: 'Portifolio com sistema de envio de email',
     tags: ['Vue', 'Nuxt', 'Tailwind'],
@@ -129,7 +140,7 @@ const projects = [
     }
   },
   {
-    id: 3,
+    id: 4,
     title: 'Wiki Rick and Morty',
     desc: 'Wiki Rick and Morty com sistema de salvar personagens favoritos.',
     tags: ['Vue', 'Nuxt', 'Tailwind', 'Pinia'],
@@ -155,6 +166,12 @@ const icon = (icon: string) => {
       return 'logos:pinia';
     case 'GSAP':
       return 'simple-icons:gsap';
+    case 'Go':
+      return 'devicon:go';
+    case 'HTMX':
+      return 'devicon:htmx';
+    case 'Templ':
+      return 'material-icon-theme:templ';
     default:
       return 'Unknown';
   }

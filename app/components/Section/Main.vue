@@ -72,72 +72,78 @@ const scrollIcon = ref<HTMLElement | null>(null)
 
 const snippets1: { lang: any; code: string }[] = [
   {
-    lang: 'html',
-    code: `<div class="developer-card">
-  <h1>Erick: Desenvolvedor Fullstack</h1>
-  <p>Desenvolvimento de aplicações web escalaveis e com performance.</p>
-  <div class="tech-stack">Vue, Nuxt, Nest.js, TypeScript</div>
-</div>`
+    lang: 'go',
+    code: `package main
+
+func main() {
+  dev := Developer{
+    Name:  "Erick",
+    Stack: []string{"Go", "Vue", "Nuxt", "TypeScript"},
+    Focus: "Backend & Frontend",
+  }
+  dev.BuildSomethingGreat()
+}`
   },
   {
     lang: 'html',
     code: `<template>
-  <section class="premium-design">
-    <h1>Escolha o melhor dev do digital?</h1>
-    <button @click="celebrate">Erick</button>
-    <button @click="celebrate">Com certeza é o Erick</button>
+  <section class="portfolio">
+    <h1>Erick Kempner</h1>
+    <p>Fullstack focado em performance e segurança.</p>
+    <TechStack :items="['Go', 'HTMX', 'Vue', 'Nuxt']" />
+    <p>Do backend em Go ao frontend.</p>
   </section>
-</template>
-<script setup>
-const celebrate = () => console.log('Excelente escolha!');
-<\/script>`
+</template>`
   },
   {
-    lang: 'js',
-    code: `const dev = {
-  name: 'Erick',
-  skills: ['Vue', 'Nuxt', 'Nest', 'TypeScript'],
-  isGoodDeveloper: true,
-};
+    lang: 'ts',
+    code: `interface Developer {
+  name: string;
+  stack: string[];
+  passion: string;
+}
 
-if (dev.isGoodDeveloper) {
-  console.log("Top");
-}`
+const erick: Developer = {
+  name: 'Erick Kempner',
+  stack: ['Go', 'Vue', 'Nuxt', 'Tailwind', 'HTMX'],
+  passion: 'Criar soluções completas e performáticas'
+};`
   }
 ]
 
 const snippets2: { lang: any; code: string }[] = [
   {
-    lang: 'js',
-    code: `
-async function buildFuture() {
-  const result = await bestDev('Erick');
-  console.log("Success:", result);
-}
-
-buildFuture();`
-  },
-  {
-    lang: 'css',
-    code: `.dev-spirit {
-  display: flex;
-  font-weight: 800;
-  color: #f8fafc; 
-  animation: pulse 2s ease-in-out infinite;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    lang: 'go',
+    code: `func (d *Developer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+  templ.Handler(
+    pages.Home(d.Projects),
+  ).ServeHTTP(w, r)
 }`
   },
   {
     lang: 'ts',
-    code: `interface IDeveloper {
-  name: string;
-  reliability: 'High' | 'Expert';
-}
+    code: `export const useProjects = () => {
+  const projects = ref<Project[]>([]);
 
-const erick: IDeveloper = {
-  name: 'Erick',
-  reliability: 'Expert'
+  const fetchProjects = async () => {
+    const data = await $fetch('/api/projects');
+    projects.value = data;
+  };
+
+  return { projects, fetchProjects };
 };`
+  },
+  {
+    lang: 'css',
+    code: `.developer-mindset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-weight: 700;
+  color: #39FF14;
+  animation: code 2s ease-in-out infinite;
+  /* Clean code, clean design */
+}`
   }
 ]
 
@@ -244,13 +250,6 @@ onUnmounted(() => {
 
 :deep(code) {
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
-
-  color: #e2e8f0 !important;
-}
-
-
-:deep(.shiki span) {
-  filter: brightness(1.5);
 }
 
 .shiki-container {

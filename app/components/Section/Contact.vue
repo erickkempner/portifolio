@@ -58,7 +58,7 @@ const sendMessage = async () => {
         </div>
 
         <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mt-4">
-          <a href="https://w.app/38fpor" target="_blank"
+          <a href="https://wa.me/5521969948185?text=Bom%20dia" target="_blank"
             class="flex items-center justify-center gap-2 p-4 rounded-xl border border-white/10 bg-glass-black/80 backdrop-blur-md hover:bg-green-600/20 hover:border-green-500 transition-all duration-300 group">
             <Icon class="text-xl group-hover:text-green-400 transition-colors" name="mdi:whatsapp" />
             <span>WhatsApp</span>

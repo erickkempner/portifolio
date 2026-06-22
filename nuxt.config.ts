@@ -10,11 +10,12 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: ['@nuxt/fonts', '@nuxt/icon', '@nuxt/image', 'nuxt-shiki', 'nuxt-lottie'],
   shiki: {
-    bundledLangs: ['html', 'javascript', 'typescript', 'css', 'json', 'vue'],
-    bundledThemes: ['github-dark']
+    bundledLangs: ['html', 'javascript', 'typescript', 'css', 'json', 'vue', 'go'],
+    bundledThemes: ['github-dark'],
+    defaultTheme: 'github-dark'
   },
   lottie: {
     componentName: 'Lottie', 
