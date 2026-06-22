@@ -88,7 +88,7 @@ func main() {
     lang: 'html',
     code: `<template>
   <section class="portfolio">
-    <h1>Erick Kempner</h1>
+    <h1>Erick Dev</h1>
     <p>Fullstack focado em performance e segurança.</p>
     <TechStack :items="['Go', 'HTMX', 'Vue', 'Nuxt']" />
     <p>Do backend em Go ao frontend.</p>
@@ -104,7 +104,7 @@ func main() {
 }
 
 const erick: Developer = {
-  name: 'Erick Kempner',
+  name: 'Erick Dev',
   stack: ['Go', 'Vue', 'Nuxt', 'Tailwind', 'HTMX'],
   passion: 'Criar soluções completas e performáticas'
 };`

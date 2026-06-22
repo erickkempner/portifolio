@@ -7,9 +7,9 @@
 
 <script lang="ts" setup>
 useSeoMeta({
-  title: 'Erick Kempner - Portifolio',
+  title: 'Erick Dev - Portifolio',
   description: 'Portifolio Desenvolvedor Web',
-  ogTitle: 'Erick Kempner - Portifolio',
+  ogTitle: 'Erick Dev - Portifolio',
   ogDescription: 'Portifolio Desenvolvedor Web',
   ogImage: 'https://i.ibb.co/5hz3JfzN/portifolio.png',
 })

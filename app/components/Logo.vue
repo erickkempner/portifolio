@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="text-3xl font-bold text-center">
-      < Erick <span class="text-neon-lime">Kempner</span> >
+      < Erick <span class="text-neon-lime">Dev</span> >
     </p>
   </div>
 </template>
